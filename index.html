@@ -1,0 +1,189 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  
+  <title>From NeRFLiX to NeRFLiX++: A General NeRF-Agnostic Restorer Paradigm</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <script src="js/modernizr.js"></script>
+  <meta name="viewport" content="width=device-width initial-scale=0.9">
+
+  <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-105303874-1', 'auto');
+	  ga('send', 'pageview');
+  </script>
+
+  <style>
+    p.small {line-height:70%;}
+    p.big {line-height:200%;}
+    </style>
+
+  <body style='-webkit-text-size-adjust: 100%; margin:0; background-image: linear-gradient(#49615d8c, #49615d8c);'>
+  
+    <div class="jumbotron jumbotron-fluid bg-dark banner">
+      <div class="container text-white">
+        
+        <div class="page-heading">
+          <h1>From NeRFLiX to NeRFLiX++: A General NeRF-Agnostic Restorer Paradigm </h1>
+          
+          <span class="page-subheading"><p>
+            <a href="https://scholar.google.com/citations?user=OXCWQz0AAAAJ&hl=en" target="_Blank">Kun Zhou<sup></sup></a> · 
+            <a href="https://scholar.google.com/citations?user=foGn_TIAAAAJ&hl=en" target="_Blank">Wenbo Li<sup></sup></a> · 
+            <a href="https://scholar.google.com/citations?user=rW2bJ-UAAAAJ&hl=zh-CN" target="_Blank">Nianjuan Jiang</a> · 
+            <a href="https://scholar.google.com/citations?user=z-rqsR4AAAAJ&hl=en" target="_Blank">Xiaoguang Han</a> · 
+            <a href="https://sites.google.com/site/jiangbolu/" target="_Blank">Jiangbo Lu<sup>#</sup></a> 
+          </p>
+          </span>
+
+          <span class="page-subheading">
+            <a href="https://arxiv.org/abs/2306.06388" target="_Blank" class="btn">Paper</a>
+            <a  target="_Blank" class="btn">Code (Coming Soon)</a>
+            </span>
+    
+        </div>
+
+    
+
+        <hr/>
+        <div>
+          <iframe src="https://www.youtube.com/embed/YiXvgQXiWII" width="1280px" height="720" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  
+        </div>
+        <br />
+        <p></p>
+        <span class="section">Abstract</span>
+        <span class="page-word">
+        <font size="3" face="verdana">
+        <p class="big">
+                  Neural radiance fields (NeRF) have shown great success in novel view synthesis. However, recovering high-quality details from
+        real-world scenes is still challenging for the existing NeRF-based approaches, due to the potential imperfect calibration information and scene
+        representation inaccuracy. Even with high-quality training frames, the synthetic novel views produced by NeRF models still suffer from notable
+        rendering artifacts, such as noise and blur. To address this, we propose NeRFLiX, a general NeRF-agnostic restorer paradigm that learns a
+        degradation-driven inter-viewpoint mixer. Specially, we design a NeRF-style degradation modeling approach and construct large-scale training
+        data, enabling the possibility of effectively removing NeRF-native rendering artifacts for deep neural networks. Moreover, beyond the
+        degradation removal, we propose an inter-viewpoint aggregation framework that fuses highly related high-quality training images, pushing the
+        performance of cutting-edge NeRF models to entirely new levels and producing highly photo-realistic synthetic views. Based on this paradigm,
+        we further present NeRFLiX++ with a stronger two-stage NeRF degradation simulator and a faster inter-viewpoint mixer, achieving superior
+        performance with significantly improved computational efficiency. Notably, NeRFLiX++ is capable of restoring photo-realistic
+        ultra-high-resolution outputs from noisy low-resolution NeRF-rendered views. Extensive experiments demonstrate the excellent restoration
+        ability of NeRFLiX++ on various novel view synthesis benchmarks.
+        <br />
+        </p>
+        </span>
+        
+        <br /><br />
+
+        <hr/>
+
+      <p></p>
+        <span class="section">Visualizations</span>
+        <span class="page-word">
+          <font size="3" face="verdana">
+        <p class="big"> We show how NeRFLiX can be used to enhance the rendered novel views of various NeRF models on different in-the-wild scenes.
+          To play with the demo, click the button in the middle of each image and slide it to the left. For results on other datasets, you are welcome to check our paper,
+           or try our code directly. 
+          <br />
+        </p>
+      </span>
+
+        <div id="demo">
+
+
+          
+	<iframe src="https://imgsli.com/MTg2Mjg1" width="100%" height="1000px" frameborder="0" scrolling="no"></iframe>
+	<script type="text/javascript" src="https://imgsli.com/static/js/widget.js"></script>
+
+
+  <iframe src="https://imgsli.com/MTg2MTE1" width="100%" height="1000px" frameborder="0" scrolling="no"></iframe>
+	<script type="text/javascript" src="https://imgsli.com/static/js/widget.js"></script>
+
+  <iframe src="https://imgsli.com/MTg1ODYy" width="100%" height="1000px" frameborder="0" scrolling="no"></iframe>
+	<script type="text/javascript" src="https://imgsli.com/static/js/widget.js"></script>
+
+  <iframe src="https://imgsli.com/MTg1ODYz" width="100%" height="1000px" frameborder="0" scrolling="no"></iframe>
+	<script type="text/javascript" src="https://imgsli.com/static/js/widget.js"></script>
+        
+
+
+        <hr/>
+        <p></p>
+        <span class="section"> Two-stage degradation modeling</span>
+        <span class="page-word">
+        </span>
+        <p></p>
+        <div>
+        <img style="margin-top:20px; border-radius:20px; border:5px solid rgba(121, 113, 113, 0.573)" src="figs/DeepNDS.png" width="90%" />
+      </div>
+        
+        <p></p>
+
+
+        <p></p>
+        <span class="section">Guided inter-viewpoint mixer</span>
+        <span class="page-word">
+        </span>
+        <p></p>
+        <div>
+        <img style="margin-top:20px; border-radius:20px; border:5px solid rgba(121, 113, 113, 0.573)" src="figs/G-IVM.png" width="90%" />
+      </div>
+        <hr/>
+        <p></p>
+
+      </div>
+    </div>
+    
+
+
+
+
+    <p class="section">&nbsp;</p>
+    <div>
+      <p align="center" class="date"> 
+        We refer to the source code of this webpage from <a href="https://xinyu-andy.github.io/uhdm-page/">Xin Yu</a>. Thanks for their awesome works. Thanks <a href="https://imgsli.com//">imgsli</a> for theri great work of providing such a powerful 
+        visualization tools.
+      </p>
+    </div>
+    <p align="center" class="date">
+      Last updated: June 2023
+      <a href="zhoukun303808@gmail.com">Contact me: zhoukun303808@gmail.com</a>
+    </p>
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+  <img src="https://hitwebcounter.com/counter/counter.php?page=8374258&style=0038&nbdigits=7&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>                  
+  
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$']]}
+});
+</script>
+
+
+
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/uhdmain.js"></script>
+<script>
+	function open_demo() {
+		document.getElementById('demos').style.display="block";
+		document.getElementById('demo-button').style.display="none";
+	}
+	function close_demo() {
+		document.getElementById('demos').style.display="none";
+		document.getElementById('demo-button').style.display="block";
+	}
+</script>
+</body>
+
+</html>
