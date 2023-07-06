@@ -28,6 +28,35 @@
     p.big {line-height:200%;}
     </style>
 
+<style>
+  .gif-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .gif-container img {
+    max-width: 50%;
+    margin: 0 10px;
+  }
+  
+  figure {
+    position: relative;
+  }
+
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 310px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    width: 59.5%;
+    text-align: center;
+  }
+</style>
+
   <body style='-webkit-text-size-adjust: 100%; margin:0; background-image: linear-gradient(#49615d8c, #49615d8c);'>
   
     <div class="jumbotron jumbotron-fluid bg-dark banner">
@@ -89,7 +118,7 @@
         <span class="section">Visualizations</span>
         <span class="page-word">
           <font size="3" face="verdana">
-        <p class="big"> We show how NeRFLiX can be used to enhance the rendered novel views of various NeRF models on different in-the-wild scenes.
+        <p class="big"> We show how NeRFLiX++ can be used to enhance the rendered novel views of various NeRF models on different in-the-wild scenes.
           To play with the demo, click the button in the middle of each image and slide it to the left. For results on other datasets, you are welcome to check our paper,
            or try our code directly. 
           <br />
@@ -97,9 +126,22 @@
       </span>
 
         <div id="demo">
-          
-      <iframe src="https://imgsli.com/MTg5OTgw" width="100%" height="1080px" frameborder="0" scrolling="no"></iframe>
-      <script type="text/javascript" src="https://imgsli.com/static/js/widget.js"></script>
+      
+      <div>
+        <figure>
+          <figcaption>BungeeNeRF</figcaption>
+          <img src="figs/ins.gif" alt="Example 1">
+        </figure>
+        <figure>
+          <img src="figs/out.gif" alt="Example 2">
+          <figcaption>BungeeNeRF + NeRFLiX++</figcaption>
+        </figure>
+       
+      </div>
+
+
+    <iframe src="https://imgsli.com/MTg5OTgw" width="100%" height="1080px" frameborder="0" scrolling="no"></iframe>
+    <script type="text/javascript" src="https://imgsli.com/static/js/widget.js"></script>
 
     <iframe src="https://imgsli.com/MTg5OTI3" width="100%" height="1080px" frameborder="0" scrolling="no"></iframe>
     <script type="text/javascript" src="https://imgsli.com/static/js/widget.js"></script>
